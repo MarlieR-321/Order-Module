@@ -1,0 +1,103 @@
+<h3>Generar orden</h3><hr><br>
+<form action="">
+    <div class="mb-3">
+        <div class="row">
+            <div class="col-4">
+                <label for="empleado" class="form-label">Empleado a Cargo: </label>
+            </div>
+            <div class="col-8">
+                
+                <select class="form-select select2" id="empleado" data-placeholder="Choose one thing">
+                    <option></option>
+                    <option>Juan</option>
+                    <option>Roberto</option>
+                    <option>Lucia</option>
+                    <option>Maria</option>
+                    <option>Tania</option>
+                    <option>Luis</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-4">
+                <label for="paciente" class="form-label">Paciente: </label>
+            </div>
+            <div class="col-8">
+                
+                <select class="form-select select2" id="paciente" data-placeholder="Seleccione un paciente" >
+                    <option data-name="" data-genero="" data-tsangre="" data-religion="" data-estado=""></option>
+                    <option data-name="Juan Ricargo Montalvan" data-genero="Masculino" data-tsangre="A+" data-religion="Islam" data-estado="Activo">0020203022020R</option>
+                    <option data-name="Maria del Barrio" data-genero="Femenino" data-tsangre="AB+" data-religion="Judaismo" data-estado="Activo">0020203022020S</option>
+                    <option data-name="Robin Hood 2nd" data-genero="Femenino" data-tsangre="O+" data-religion="Catolica" data-estado="Embarazada">0020203022021S</option>
+                    <option data-name="Muertin Martinez" data-genero="Masculino" data-tsangre="A+" data-religion="Islam" data-estado="Fallecido">0020203022321F</option>
+                    <option data-name="Locren Dario" data-genero="Femenino" data-tsangre="A+" data-religion="Catolica" data-estado="Activo">0010203022322H</option>
+                    <option data-name="Juan Ricargo Montalvan" data-genero="Femenino" data-tsangre="A+" data-religion="Islam" data-estado="Activo">0040203022020G</option>
+                </select>
+            </div>
+        </div>
+        
+        <br>
+        <div class="row">
+            <ul class="list-group">
+                <li id="full-name" class="list-group-item"><strong>Nombre Completo: <i id="name"></i></strong></li>
+                <li id="genero" class="list-group-item"><strong>Sexo: </strong></li>
+                <li id="tipo-sangre" class="list-group-item"><strong>Tipo de Sangre: </strong></li>
+                <li id="religion" class="list-group-item"><strong>Religión: </strong></li>
+                <li id="estado" class="list-group-item"><strong>Estado del paciente: </strong> Activo, Embarazada o Fallecido </li>
+            </ul>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-4">
+                <label for="servicio" class="form-label">Tipo de Servicio: </label>
+            </div>
+            <div class="col-8">
+                
+                <select class="form-select" id="servicio" data-placeholder="Choose one thing">
+                    <option>Seleccione...</option>
+                    <option>Tipo 1</option>
+                    <option>Tipo 2 </option>
+                    <option>Tipo 3</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-4">
+                <label for="servicio" class="form-label">Tipo de Orden: </label>
+            </div>
+            <div class="col-8">
+                <select class="form-select" id="servicio" data-placeholder="Choose one thing">
+                    <option>Seleccione...</option>
+                    <option>Cita</option>
+                    <option>Emergencia</option>
+                    <option>Rutina</option>
+                </select>
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-4">
+                <label for="observaciones" class="form-label">Observaciones: </label>
+            </div>
+            <div class="col-8">
+                <textarea class="form-control" id="observaciones" rows="3"></textarea>
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-4">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="asistencia" value="option1">
+                    <label class="form-check-label" for="asistencia">Asistencia requerida</label>
+                  </div>
+            </div>
+        </div>
+        <br>
+        <button class="btn btn-primary"> Guardar </button>
+    </div>    
+</form>

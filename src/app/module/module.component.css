@@ -1,0 +1,14 @@
+.tabs{
+    background-color: whitesmoke;
+    padding: 25px 30px;
+    border-color: slategrey;
+    border-style: double;
+    border-radius: 40px;
+    border-width: 5px;
+
+    margin-bottom: 20px;
+}
+.tab-content{
+    padding: 10px 25px;
+    
+}

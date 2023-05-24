@@ -1,0 +1,27 @@
+<!-- DATOS DENTRO DEL MAESTRO -->
+<div class="container col-8 tabs">
+    <ul class="nav nav-tabs" id="tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#view" type="button" role="tab" aria-controls="view" aria-selected="true">Visualizar todos</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#new" type="button" role="tab" aria-controls="new" aria-selected="false">Nueva Orden</button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="view" role="tabpanel" aria-labelledby="home-tab">
+            <app-show-list></app-show-list>
+        </div>
+        <div class="tab-pane fade" id="new" role="tabpanel" aria-labelledby="profile-tab">
+            <br>
+            <app-add-master></app-add-master>
+            <hr>
+            <app-add-detail></app-add-detail>
+            <hr>
+        </div>
+        
+    </div>
+    
+</div>
+
