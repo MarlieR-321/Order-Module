@@ -25,26 +25,23 @@
             </div>
             <div class="col-8">
                 
-                <select class="form-select select2" id="paciente" data-placeholder="Seleccione un paciente" >
-                    <option data-name="" data-genero="" data-tsangre="" data-religion="" data-estado=""></option>
-                    <option data-name="Juan Ricargo Montalvan" data-genero="Masculino" data-tsangre="A+" data-religion="Islam" data-estado="Activo">0020203022020R</option>
-                    <option data-name="Maria del Barrio" data-genero="Femenino" data-tsangre="AB+" data-religion="Judaismo" data-estado="Activo">0020203022020S</option>
-                    <option data-name="Robin Hood 2nd" data-genero="Femenino" data-tsangre="O+" data-religion="Catolica" data-estado="Embarazada">0020203022021S</option>
-                    <option data-name="Muertin Martinez" data-genero="Masculino" data-tsangre="A+" data-religion="Islam" data-estado="Fallecido">0020203022321F</option>
-                    <option data-name="Locren Dario" data-genero="Femenino" data-tsangre="A+" data-religion="Catolica" data-estado="Activo">0010203022322H</option>
-                    <option data-name="Juan Ricargo Montalvan" data-genero="Femenino" data-tsangre="A+" data-religion="Islam" data-estado="Activo">0040203022020G</option>
-                </select>
+                <mat-select name="paciente" placeholder="Seleccione..." class="form-control" (selectionChange)="onChange($event)">
+                    
+                    <mat-option  *ngFor="let pc of listPacientes" [value]="pc.idPaciente" >
+                        {{pc.primerNombre}} {{pc.primerApellido}} - {{pc.numIdentificacion}}
+                    </mat-option>
+                </mat-select>
             </div>
         </div>
         
         <br>
         <div class="row">
             <ul class="list-group">
-                <li id="full-name" class="list-group-item"><strong>Nombre Completo: <i id="name"></i></strong></li>
-                <li id="genero" class="list-group-item"><strong>Sexo: </strong></li>
-                <li id="tipo-sangre" class="list-group-item"><strong>Tipo de Sangre: </strong></li>
-                <li id="religion" class="list-group-item"><strong>Religión: </strong></li>
-                <li id="estado" class="list-group-item"><strong>Estado del paciente: </strong> Activo, Embarazada o Fallecido </li>
+                <li id="full-name" class="list-group-item"><strong>Nombre Completo: </strong> {{currentpac.primerNombre}} {{currentpac.segundoNombre}} {{currentpac.primerApellido}} {{currentpac.segundoApellido}}</li>
+                <li id="genero" class="list-group-item"><strong>Sexo: </strong> {{this.sexo}} </li>
+                <li id="tipo-sangre" class="list-group-item"><strong>Tipo de Sangre: </strong> {{this.tsangre}} </li>
+                <li id="religion" class="list-group-item"><strong>Religión: </strong> {{this.religion}} </li>
+                <li id="estado" class="list-group-item"><strong>Estado del paciente: </strong> {{this.estado}} </li>
             </ul>
         </div>
 

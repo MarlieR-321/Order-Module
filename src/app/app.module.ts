@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from "@angular/common/http";
-
+import {MatSelectModule} from '@angular/material/select'; 
 import { AppComponent } from './app.component';
 import { ModuleComponent } from './module/module.component';
 import { AddMasterComponent } from './module/components/add-master/add-master.component';
 import { AddDetailComponent } from './module/components/add-detail/add-detail.component';
 import { ShowListComponent } from './module/components/show-list/show-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,10 @@ import { ShowListComponent } from './module/components/show-list/show-list.compo
     ShowListComponent
   ],
   imports: [
-    BrowserModule
+    HttpClientModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

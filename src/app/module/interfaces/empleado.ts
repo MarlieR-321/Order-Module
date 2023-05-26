@@ -1,13 +1,7 @@
-export interface Pacientes {
-    idPaciente: Number;
-    ididentificacion: Number;
-    numIdentificacion: string;
-    numexpediente: Number;
-    NumINSS: string;
-    idestadocivil:Number;
-    email: string;
-    //Chingo de id
-    idSexo: Number;
+export interface Empleado {
+    idEmpleado: Number;
+    idProfesiones: Number;
+    //MPD
     idnacionalidad: Number;
     idpaisnac: Number;
     iddepartamentonac: Number;
@@ -15,19 +9,23 @@ export interface Pacientes {
     idpaisres: Number;
     iddepartamentores: Number;
     idmunicipiores: Number;
-    idTipoSangre: Number;
-    idprofesiones: Number;
-    idReligion: Number;
-    //Volvemos a datos
+    //
+    idIdentificacion: Number;
+    idSexo: Number;
+    numIdentificacion: string;
+    NumINSS: string;
+    codMinsa:String;
     primerNombre: string;
     segundoNombre: string;
     primerApellido: string;
     segundoApellido: string;
     fechaNac:string;
+    edadIngreso:String;
+    email: string;
     direcciondomiciliar: string;
     telefonodomiciliar: string;
     telefonomovil: string;
-    activo: string;
-    emabrazada: string;
-    fallecido: string;
+    fechaContrato:String
+    urlFoto:string;
+    activo:string;
 }

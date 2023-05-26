@@ -8,12 +8,24 @@ import { Observable } from "rxjs";
 })
 
 export class PacientesService {
-  private paciente: Pacientes[] = [{Activo: "s", DireccionDomiciliar:"",Emabrazada:"",Fallecido:"",Email:"",FechaNac:"",IdDepartamentoNac:1,IdDepartamentoRes:2,IdEstadoCivil: 2,IdIdentificacion:0,IdMunicipioNac:0,IdMunicipioRes:0, IdNacionalidad:0,IdPaciente:0,IdPaisNac:0,IdPaisRes:0,IdProfesiones:0,idReligion:0,IdSexo:0,IdTipoSangre:0,NumExpediente:0,NumIdentificacion:"",NumINSS:"",PrimerApellido:"Juan",PrimerNombre:"Juan",SegundoApellido:"",SegundoNombre:"",TelefonoDomiciliar:"",TelefonoMovil:""}];
-  private url ="https://localhost:8080/paciente"
+  private pac = {activo: "", direcciondomiciliar:"",emabrazada:"",fallecido:"",email:"",fechaNac:"",iddepartamentonac:1,iddepartamentores:2,idestadocivil: 2,ididentificacion:0,idmunicipionac:0,idmunicipiores:0, idnacionalidad:0,idPaciente:0,idpaisnac:0,idpaisres:0,idprofesiones:0,idReligion:0,idSexo:0,idTipoSangre:0,numexpediente:0,numIdentificacion:"",NumINSS:"",primerApellido:"Juan",primerNombre:"Juan",segundoApellido:"",segundoNombre:"",telefonodomiciliar:"",telefonomovil:""}
+  private paciente: Pacientes[] = [this.pac];
+
+  private url ="http://localhost:8082/api/paciente"
+
+  httpOption = {
+    'Content-type' : 'application/json',
+    'Access-Control-Allow-Origin' : '*'
+  }  
 
   constructor(private http: HttpClient) { }
 
   public getFrase():Observable<Pacientes[]>{
-    return this.http.get<Pacientes[]>(this.url);
+    return this.http.get<Pacientes[]>(this.url, {headers: this.httpOption});
   }
+
+  public getPacById(id:String):Observable<Pacientes>{
+    return this.http.get<Pacientes>(this.url+'/'+id, {headers: this.httpOption});
+  }
+
 }
