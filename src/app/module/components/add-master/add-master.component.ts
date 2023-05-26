@@ -1,10 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Pacientes } from '../../interfaces/pacientes';
 import { PacientesService } from '../../services/pacientes.service';
-import { MatSelectModule } from '@angular/material/select';
-import {FormControl, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TipoSangreService } from '../../services/tipo-sangre.service';
 import { ReligionService } from '../../services/religion.service';
+import { EmpleadoService } from '../../services/empleado.service';
+import { Empleado } from '../../interfaces/empleado';
+import { TServicioService } from '../../services/tservicio.service';
+import { Tservicio } from '../../interfaces/tservicio';
+import { Torden } from '../../interfaces/torden';
+import { TordenService } from '../../services/torden.service';
+
 
 
 @Component({
@@ -18,9 +23,20 @@ export class AddMasterComponent implements OnInit{
   //selectFormControl = new FormControl('', Validators.required);
 
 
-  constructor(private pac:PacientesService, private sang:TipoSangreService, private rel:ReligionService){}
+  constructor(
+    private pac:PacientesService, 
+    private sang:TipoSangreService, 
+    private rel:ReligionService,
+    private empl:EmpleadoService,
+    private tserv:TServicioService,
+    private torden:TordenService
+    ){}
   
   listPacientes: Pacientes[] =[];
+  listEmpleados:Empleado[]=[]
+  listTServicio:Tservicio[]=[]
+  listTOrden: Torden[]=[]
+
   selected = '';
   //Visible
   sexo=''
@@ -34,12 +50,14 @@ export class AddMasterComponent implements OnInit{
   ngOnInit(){
     //this.onChange()
     this.fetchPaciente();
+    this.fetchEmpleado();
+    this.fetchTServicio();
+    this.fetchTOrden();
   }
 
   onChange(e:any){
     this.selected = e.value;
     this.fetchPacienteById( this.selected);
-    
   }
   
   //FETCH FROM API
@@ -50,6 +68,25 @@ export class AddMasterComponent implements OnInit{
     })
   }
 
+  fetchEmpleado(){
+    this.empl.getEmpleados().subscribe(data=>{
+      this.listEmpleados = data
+    })
+  }
+
+  fetchTServicio(){
+    this.tserv.getFrase().subscribe(data=>{
+      this.listTServicio = data
+    })
+  }
+
+  fetchTOrden(){
+    this.torden.getFrase().subscribe(data=>{
+      this.listTOrden = data
+    })
+  }
+
+  //CONFIG PSEUDO-TABLE
   fetchPacienteById(id:String){
     this.pac.getPacById(id).subscribe(data=>{
       this.currentpac = data

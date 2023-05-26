@@ -6,16 +6,12 @@
                 <label for="empleado" class="form-label">Empleado a Cargo: </label>
             </div>
             <div class="col-8">
-                
-                <select class="form-select select2" id="empleado" data-placeholder="Choose one thing">
-                    <option></option>
-                    <option>Juan</option>
-                    <option>Roberto</option>
-                    <option>Lucia</option>
-                    <option>Maria</option>
-                    <option>Tania</option>
-                    <option>Luis</option>
-                </select>
+                <mat-select name="empleado" placeholder="Seleccione..." class="form-control">
+                    
+                    <mat-option  *ngFor="let emp of listEmpleados" [value]="emp.idEmpleado" >
+                        {{emp.primerNombre}} {{emp.primerApellido}} - Codigo MINSA -> {{emp.codMinsa}}
+                    </mat-option>
+                </mat-select>
             </div>
         </div>
         <br>
@@ -51,27 +47,26 @@
                 <label for="servicio" class="form-label">Tipo de Servicio: </label>
             </div>
             <div class="col-8">
-                
-                <select class="form-select" id="servicio" data-placeholder="Choose one thing">
-                    <option>Seleccione...</option>
-                    <option>Tipo 1</option>
-                    <option>Tipo 2 </option>
-                    <option>Tipo 3</option>
-                </select>
+                <mat-select name="servicio" placeholder="Seleccione..." class="form-control">
+                    
+                    <mat-option  *ngFor="let tserv of listTServicio" [value]="tserv.idTipoServicio" >
+                        {{tserv.descripcion}}
+                    </mat-option>
+                </mat-select>
             </div>
         </div>
         <br>
         <div class="row">
             <div class="col-4">
-                <label for="servicio" class="form-label">Tipo de Orden: </label>
+                <label for="torden" class="form-label">Tipo de Orden: </label>
             </div>
             <div class="col-8">
-                <select class="form-select" id="servicio" data-placeholder="Choose one thing">
-                    <option>Seleccione...</option>
-                    <option>Cita</option>
-                    <option>Emergencia</option>
-                    <option>Rutina</option>
-                </select>
+                <mat-select name="torden" placeholder="Seleccione..." class="form-control">
+                    
+                    <mat-option  *ngFor="let torden of listTOrden" [value]="torden.idTipoOrden" >
+                        {{torden.descripcion}}
+                    </mat-option>
+                </mat-select>
             </div>
         </div>
 

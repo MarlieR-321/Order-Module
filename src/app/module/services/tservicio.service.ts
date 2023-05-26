@@ -6,9 +6,9 @@ import { Observable } from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class TordenService {
-  private tservicio: Tservicio[]=[{IdTipoServicio:0,Descripcion:""}]
-  private url ="https://localhost:8080/tservicio"
+export class TServicioService {
+  private tservicio: Tservicio[]=[{idTipoServicio:0,descripcion:""}]
+  private url ="http://localhost:8089/api/tipo_servicio"
   constructor(private http:HttpClient) { }
   
   public getFrase():Observable<Tservicio[]>{

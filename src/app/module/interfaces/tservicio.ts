@@ -1,4 +1,4 @@
 export interface Tservicio {
-    IdTipoServicio:Number;
-    Descripcion:string;
+    idTipoServicio:Number;
+    descripcion:string;
 }

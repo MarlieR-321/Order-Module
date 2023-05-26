@@ -1,4 +1,4 @@
 export interface Torden {
-    IdTipoOrden:Number;
-    Descripcion:string;
+    idTipoOrden:Number;
+    descripcion:string;
 }

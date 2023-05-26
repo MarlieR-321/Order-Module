@@ -7,8 +7,8 @@ import { Observable } from "rxjs";
   providedIn: 'root'
 })
 export class TordenService {
-  private torden: Torden[]=[{IdTipoOrden:0,Descripcion:""}]
-  private url ="https://localhost:8080/torden"
+  private torden: Torden[]=[{idTipoOrden:0,descripcion:""}]
+  private url ="http://localhost:8090/api/tipo_orden"
   constructor(private http:HttpClient) { }
   
   public getFrase():Observable<Torden[]>{
