@@ -1,12 +1,12 @@
 <h3>Generar orden</h3><hr><br>
-<form action="">
+<form #masterForm="ngForm" (ngSubmit)="getValues(masterForm.value)">
     <div class="mb-3">
         <div class="row">
             <div class="col-4">
                 <label for="empleado" class="form-label">Empleado a Cargo: </label>
             </div>
             <div class="col-8">
-                <mat-select name="empleado" placeholder="Seleccione..." class="form-control">
+                <mat-select ngModel name="empleado" placeholder="Seleccione..." class="form-control">
                     
                     <mat-option  *ngFor="let emp of listEmpleados" [value]="emp.idEmpleado" >
                         {{emp.primerNombre}} {{emp.primerApellido}} - Codigo MINSA -> {{emp.codMinsa}}
@@ -21,10 +21,10 @@
             </div>
             <div class="col-8">
                 
-                <mat-select name="paciente" placeholder="Seleccione..." class="form-control" (selectionChange)="onChange($event)">
+                <mat-select ngModel name="paciente" placeholder="Seleccione..." class="form-control" (selectionChange)="onChange($event)">
                     
                     <mat-option  *ngFor="let pc of listPacientes" [value]="pc.idPaciente" >
-                        {{pc.primerNombre}} {{pc.primerApellido}} - {{pc.numIdentificacion}}
+                        {{pc.primerNombre}} {{pc.primerApellido}} - Id: {{pc.numIdentificacion}}
                     </mat-option>
                 </mat-select>
             </div>
@@ -47,7 +47,7 @@
                 <label for="servicio" class="form-label">Tipo de Servicio: </label>
             </div>
             <div class="col-8">
-                <mat-select name="servicio" placeholder="Seleccione..." class="form-control">
+                <mat-select ngModel name="servicio" placeholder="Seleccione..." class="form-control">
                     
                     <mat-option  *ngFor="let tserv of listTServicio" [value]="tserv.idTipoServicio" >
                         {{tserv.descripcion}}
@@ -61,7 +61,7 @@
                 <label for="torden" class="form-label">Tipo de Orden: </label>
             </div>
             <div class="col-8">
-                <mat-select name="torden" placeholder="Seleccione..." class="form-control">
+                <mat-select ngModel name="torden" placeholder="Seleccione..." class="form-control">
                     
                     <mat-option  *ngFor="let torden of listTOrden" [value]="torden.idTipoOrden" >
                         {{torden.descripcion}}
@@ -76,7 +76,7 @@
                 <label for="observaciones" class="form-label">Observaciones: </label>
             </div>
             <div class="col-8">
-                <textarea class="form-control" id="observaciones" rows="3"></textarea>
+                <textarea ngModel name="observaciones" class="form-control" id="observaciones" rows="3"></textarea>
             </div>
         </div>
 
@@ -84,12 +84,13 @@
         <div class="row">
             <div class="col-4">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="asistencia" value="option1">
+                    <input ngModel class="form-check-input" name="asistencia" type="checkbox" id="asistencia" value="option1">
                     <label class="form-check-label" for="asistencia">Asistencia requerida</label>
                   </div>
             </div>
         </div>
         <br>
-        <button class="btn btn-primary"> Guardar </button>
+        
     </div>    
+    <button class="btn btn-secondary"> Guardar </button>
 </form>

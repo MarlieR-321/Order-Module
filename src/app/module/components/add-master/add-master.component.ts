@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Pacientes } from '../../interfaces/pacientes';
 import { PacientesService } from '../../services/pacientes.service';
 import { TipoSangreService } from '../../services/tipo-sangre.service';
@@ -9,7 +9,8 @@ import { TServicioService } from '../../services/tservicio.service';
 import { Tservicio } from '../../interfaces/tservicio';
 import { Torden } from '../../interfaces/torden';
 import { TordenService } from '../../services/torden.service';
-
+import { Orden } from '../../interfaces/orden';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -19,10 +20,6 @@ import { TordenService } from '../../services/torden.service';
 })
 export class AddMasterComponent implements OnInit{
   
-  
-  //selectFormControl = new FormControl('', Validators.required);
-
-
   constructor(
     private pac:PacientesService, 
     private sang:TipoSangreService, 
@@ -45,14 +42,54 @@ export class AddMasterComponent implements OnInit{
   estado=''
   currentpac:Pacientes = {activo: "", direcciondomiciliar:"",emabrazada:"",fallecido:"",email:"",fechaNac:"",iddepartamentonac:1,iddepartamentores:2,idestadocivil: 2,ididentificacion:0,idmunicipionac:0,idmunicipiores:0, idnacionalidad:0,idPaciente:0,idpaisnac:0,idpaisres:0,idprofesiones:0,idReligion:0,idSexo:0,idTipoSangre:0,numexpediente:0,numIdentificacion:"",NumINSS:"",primerApellido:"",primerNombre:"",segundoApellido:"",segundoNombre:"",telefonodomiciliar:"",telefonomovil:""}
   
- // animalControl = new FormControl<Pacientes>(this.listPacientes[1]);
+  ordenObj:Orden = {activo:"S",asistencia:'',detalles:[],fechaImprime:'',fechaOrden:null,idEmpleado:0,idPaciente:0,idTipoOrden:0,idTipoServicio:0,n_order:null,observaciones:'',paciente:null,tipo_orden:null}
   
+  @Output() newItemEvent = new EventEmitter<Orden>();
+  
+  pipe = new DatePipe('en-US');
+
   ngOnInit(){
     //this.onChange()
     this.fetchPaciente();
     this.fetchEmpleado();
     this.fetchTServicio();
     this.fetchTOrden();
+  }
+
+  //FORM SECTION
+  getValues(val:any){
+    //console.warn(val)
+
+    //Set Values
+    
+    if(val.asistencia ===true){
+      this.ordenObj.asistencia = 'S'
+    }else{
+      this.ordenObj.asistencia = 'N'
+    }
+
+    this.ordenObj.idEmpleado = val.empleado
+    this.ordenObj.idPaciente = val.paciente
+    this.ordenObj.idTipoOrden = val.torden
+    this.ordenObj.idTipoServicio = val.servicio
+    this.ordenObj.observaciones = val.observaciones
+
+    this.generateDate()
+    this.ordenObj.fechaImprime = this.changedDate
+
+    this.newItemEvent.emit(this.ordenObj)
+    //console.warn(this.ordenObj)
+  }
+
+  changedDate:string |null= "";
+  //END FORM SECTION`
+  generateDate(){
+    var today = new Date();
+    
+
+    let ChangedFormat = this.pipe.transform(today, 'dd/MM/YYYY hh:mm:ss');
+    this.changedDate = ChangedFormat;
+    //console.log(this.changedDate);
   }
 
   onChange(e:any){

@@ -1,19 +1,19 @@
 import { OrdenDetalle } from "./orden-detalle"
 
 export interface Orden {
-    n_order:string
+    n_order:string | null
     idEmpleado:Number
     idPaciente:Number
     idTipoServicio:Number
-    idTipoOrden:Number
+    idTipoOrden:Number 
     asistencia:string
     observaciones:string
-    fechaOrden:string
+    fechaOrden:string|null
     activo:string
-    fechaImprime:string
+    fechaImprime:string|null
     detalles:OrdenDetalle[]
 
     //opt
-    paciente:string
-    tipo_orden:string
+    paciente:string |null
+    tipo_orden:string|null
 }

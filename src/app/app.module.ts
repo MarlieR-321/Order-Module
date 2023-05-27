@@ -8,6 +8,7 @@ import { AddMasterComponent } from './module/components/add-master/add-master.co
 import { AddDetailComponent } from './module/components/add-detail/add-detail.component';
 import { ShowListComponent } from './module/components/show-list/show-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

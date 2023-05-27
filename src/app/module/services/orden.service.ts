@@ -20,4 +20,7 @@ export class OrdenService {
     return this.http.get<Orden[]>(this.url, {headers: this.httpOption});
   }
 
+  public addOrden(orden:Orden):Observable<Orden>{
+    return this.http.post<Orden>(this.url, orden,{headers: this.httpOption})
+  }
 }

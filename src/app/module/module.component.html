@@ -15,10 +15,14 @@
         </div>
         <div class="tab-pane fade" id="new" role="tabpanel" aria-labelledby="profile-tab">
             <br>
-            <app-add-master></app-add-master>
-            <hr>
-            <app-add-detail></app-add-detail>
-            <hr>
+            <form #simpleForm="ngForm" (ngSubmit)="getValues(simpleForm.value)">
+                <app-add-master (newItemEvent)="setOrden($event)"></app-add-master>
+                <hr>
+                <app-add-detail (newItemEvent)="setDetalle($event)"></app-add-detail>
+                <hr>
+                <button class="btn btn-primary" (click)="save()"> Insertar </button>
+            </form>
+            
         </div>
         
     </div>

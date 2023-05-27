@@ -1,6 +1,6 @@
 <h3>Examenes a realizar</h3>
 <br>
-<form action="">
+<form [formGroup]="form" #detailForm="ngForm" (ngSubmit)="getValues()">
     <div class="mb-3">
         <div class="row">
             <div class="col-4">
@@ -8,38 +8,31 @@
             </div>
 
             <div class="col-8">
-                <select name="perfil" id="perfil" class="form-control multiple" multiple="multiple" placeholder="Seleccione el perfil a realizar">
+                <mat-select formControlName="perfil" (selectionChange)="initExamenByPerfil()"  name="perfil" id="perfil" class="form-control" multiple="multiple" data-placeholder="Seleccione el perfil a realizar">
                     
-                    <option *ngFor="let perf of listPerfil" value="{{perf.idPerfiles}}">{{perf.descripcion}}</option>
-                </select>
+                    <mat-option *ngFor="let perf of listPerfil" value="{{perf.idPerfiles}}">{{perf.descripcion}}</mat-option>
+                </mat-select>
             </div>
         </div>
         <br>
         <div class="row">
             <div class="col-4">
-                <label for="examenes" class="form-label">Seleccionar por examen singular: </label>
+                <label for="examenes" class="form-label">Seleccionar examenes adicionales: </label>
             </div>
 
             <div class="col-8">
-                <select name="examen" id="examen" class="form-control multiple" multiple="multiple" >
+                <mat-select formControlName="examenes" name="examen" id="examen" class="form-control" multiple data-placeholder="Seleccione el perfil">
                     <ng-container #first *ngFor ="let perf of listPerfil">
-                        <optgroup label="{{perf.descripcion}}">
+                        <mat-optgroup label="{{perf.descripcion}}">
                             <ng-container #second *ngFor="let ex of listExamenes">
-                                <option *ngIf="perf.idPerfiles == ex.idPerfil" class="opt{{ex.idPerfil}}" value="{{ex.idExamen}}">{{ex.descripcion}}</option>
+                                
+                                <mat-option  *ngIf="perf.idPerfiles == ex.idPerfil" [value]="ex.idExamen">{{ex.descripcion}}</mat-option>
                             </ng-container>
-                        </optgroup>
+                        </mat-optgroup>
                     </ng-container>
-                    
-                </select>
+                </mat-select>
             </div>
         </div>
     </div>
-    <button class="btn btn-primary">Insertar</button>
+    <button class="btn btn-secondary"> Guardar </button>
 </form>
-<script>
-    function init(){
-        alert('Algo paso');
-
-  
-      }
-</script>

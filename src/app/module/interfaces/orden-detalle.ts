@@ -1,7 +1,7 @@
 export interface OrdenDetalle {
     
-    idOrden:Number
+    idOrden:Number|null
     idExamen:Number
     activo:string
-    examen:string
+    examen:string |null
 }
