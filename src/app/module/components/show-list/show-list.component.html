@@ -2,40 +2,23 @@
     <thead>
         <tr>
             <th scope="col"># Orden</th>
-            <th scope="col">Empleado</th>
+            <th scope="col">Paciente</th>
             <th scope="col">Tipo de Orden</th>
             <th scope="col">Fecha</th>
             <th scope="col">Examenes</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-        <tr>
-            <th scope="row">4</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+       <tr *ngFor="let obj of listOrden">
+            <th scope="row">{{obj.n_order}}</th>
+            <th>{{obj.paciente}}</th>
+            <th>{{obj.tipo_orden}}</th>
+            <th>{{obj.fechaOrden}}</th>
+            <th>
+                <p *ngFor="let det of obj.detalles" ng-init="">
+                    {{det.examen}}
+                </p>
+            </th>
         </tr>
     </tbody>
 </table>

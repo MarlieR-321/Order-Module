@@ -20,4 +20,8 @@ export class ExamenService {
     return this.http.get<Examen[]>(this.url, {headers: this.httpOption});
   }
 
+  public getExamenById(id:string):Observable<Examen>{
+    return this.http.get<Examen>(this.url+'/'+id, {headers: this.httpOption});
+  }
+
 }
