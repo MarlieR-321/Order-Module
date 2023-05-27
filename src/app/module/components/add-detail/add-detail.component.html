@@ -8,13 +8,10 @@
             </div>
 
             <div class="col-8">
-                <select class="form-select multiple" id="perfil" data-placeholder="Seleccione los perfiles a realizar" multiple>
-                    <option value="1">LSH</option>
-                    <option value="2">Perfil Lipidico</option>
-                    <option value="3">Perfil 3</option>
-                    <option value="4">Perfil 4</option>
+                <select name="perfil" id="perfil" class="form-control multiple" multiple="multiple" placeholder="Seleccione el perfil a realizar">
+                    
+                    <option *ngFor="let perf of listPerfil" value="{{perf.idPerfiles}}">{{perf.descripcion}}</option>
                 </select>
-                
             </div>
         </div>
         <br>
@@ -24,32 +21,25 @@
             </div>
 
             <div class="col-8">
-                <select class="form-select multiple" id="examenes" data-placeholder="Seleccione los examenes a realizar" multiple>
-                    <optgroup label="LSH">
-                        <option class="1">Exam 1</option>
-                        <option class="1">Exam 2</option>
-                        <option class="1">Exam 3</option>
-                        <option class="1">Exam 4</option>
-                    </optgroup>
-                    <optgroup label="Perfil Lipidico">
-                        <option class="2">Exam 5</option>
-                        <option class="2">Exam 6</option>
-                        <option class="2">Exam 7</option>
-                        <option class="2">Exam 8</option>
-                        <option class="2">Exam 9</option>
-                        <option class="2">Exam 10</option>
-                    </optgroup>
-                    <optgroup label="Group 3">
-                        <option class="3">Exam 11</option>
-                        <option class="3">Exam 12</option>
-                        <option class="3">Exam 13</option>
-                        <option class="3">Exam 14</option>
-                        <option class="3">Exam 15</option>
-                    </optgroup>
+                <select name="examen" id="examen" class="form-control multiple" multiple="multiple" >
+                    <ng-container #first *ngFor ="let perf of listPerfil">
+                        <optgroup label="{{perf.descripcion}}">
+                            <ng-container #second *ngFor="let ex of listExamenes">
+                                <option *ngIf="perf.idPerfiles == ex.idPerfil" class="opt{{ex.idPerfil}}" value="{{ex.idExamen}}">{{ex.descripcion}}</option>
+                            </ng-container>
+                        </optgroup>
+                    </ng-container>
+                    
                 </select>
-                
             </div>
         </div>
     </div>
     <button class="btn btn-primary">Insertar</button>
 </form>
+<script>
+    function init(){
+        alert('Algo paso');
+
+  
+      }
+</script>

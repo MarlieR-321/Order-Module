@@ -47,15 +47,15 @@
 
       $('#perfil').change(function() {
         var $selectedOptions = $(this).find('option:selected');
-        $('#examenes').find('option:selected').prop('selected', false);
+        $('#examen').find('option:selected').prop('selected', false);
 
         $selectedOptions.each(function(){
-          var currentClass = "."+$(this).val();
-          $('#examenes').find(currentClass).prop('selected', true);
+          var currentClass = ".opt"+$(this).val();
+          $('#examen').find(currentClass).prop('selected', true);
           
         });
 
-        $("#examenes").select2( {
+        $("#examen").select2( {
           theme: "bootstrap-5",
           width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
           placeholder: $( this ).data( 'placeholder' ),
