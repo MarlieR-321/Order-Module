@@ -42,7 +42,7 @@ export class AddMasterComponent implements OnInit{
   estado=''
   currentpac:Pacientes = {activo: "", direcciondomiciliar:"",emabrazada:"",fallecido:"",email:"",fechaNac:"",iddepartamentonac:1,iddepartamentores:2,idestadocivil: 2,ididentificacion:0,idmunicipionac:0,idmunicipiores:0, idnacionalidad:0,idPaciente:0,idpaisnac:0,idpaisres:0,idprofesiones:0,idReligion:0,idSexo:0,idTipoSangre:0,numexpediente:0,numIdentificacion:"",NumINSS:"",primerApellido:"",primerNombre:"",segundoApellido:"",segundoNombre:"",telefonodomiciliar:"",telefonomovil:""}
   
-  ordenObj:Orden = {activo:"S",asistencia:'',detalles:[],fechaImprime:'',fechaOrden:null,idEmpleado:0,idPaciente:0,idTipoOrden:0,idTipoServicio:0,n_order:null,observaciones:'',paciente:null,tipo_orden:null}
+  ordenObj:Orden = {activo:"S",asistencia:'',detalles:[],fechaImprime:'',fechaOrden:null,idEmpleado:0,idPaciente:0,idTipoOrden:0,idTipoServicio:0,n_Orden:null,observaciones:'',paciente:null,tipo_orden:null}
   
   @Output() newItemEvent = new EventEmitter<Orden>();
   

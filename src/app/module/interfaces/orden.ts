@@ -1,7 +1,7 @@
 import { OrdenDetalle } from "./orden-detalle"
 
 export interface Orden {
-    n_order:string | null
+    n_Orden:string | null
     idEmpleado:Number
     idPaciente:Number
     idTipoServicio:Number

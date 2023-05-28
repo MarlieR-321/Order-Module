@@ -24,7 +24,7 @@ export class ShowListComponent {
   fetchOrden(){
     this.ord.getOrden().subscribe(data=>{
       this.listOrden = data
-      console.log(this.listOrden)
+      console.warn(this.listOrden)
 
       this.listOrden.forEach(element=>{
         element.detalles.forEach(det=>{

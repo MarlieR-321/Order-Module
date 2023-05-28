@@ -7,7 +7,7 @@ export interface OrdenEnv {
     idTipoOrden:Number 
     asistencia:string
     observaciones:string
-    N_Orden:string,
+    n_Orden:string,
     activo:string
     fechaImprime:string|null
     fechaOrden:string|null
