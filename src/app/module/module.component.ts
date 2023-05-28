@@ -19,7 +19,7 @@ export class ModuleComponent {
   constructor (private serv:OrdenService){}
   
   orden:Orden = {activo:"S",asistencia:'',detalles:[],fechaImprime:'',fechaOrden:'',idEmpleado:0,idPaciente:0,idTipoOrden:0,idTipoServicio:0,n_Orden:null,observaciones:'',paciente:null,tipo_orden:null};
-  ord:OrdenEnv ={n_Orden:'',fechaOrden:'',activo:'',asistencia:'',detalles:[],fechaImprime:'',idEmpleado:0,idPaciente:0,idTipoOrden:0,idTipoServicio:0,observaciones:''};
+  ord:OrdenEnv ={N_Orden:'',fechaOrden:'',activo:'',asistencia:'',detalles:[],fechaImprime:'',idEmpleado:0,idPaciente:0,idTipoOrden:0,idTipoServicio:0,observaciones:''};
   ngAfterViewInit(){
     //this.orden = this.ordenObj.value
     //console.warn(this.orden)
@@ -55,7 +55,7 @@ export class ModuleComponent {
       idTipoServicio:this.orden.idTipoServicio,
       observaciones:this.orden.observaciones,
       fechaOrden:this.orden.fechaOrden,
-      n_Orden:'0',
+      N_Orden:'0',
       detalles:send,
     }
 
