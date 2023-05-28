@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Orden } from '../interfaces/orden';
 import { Observable } from 'rxjs';
+import { OrdenEnv } from '../interfaces/orden-env';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class OrdenService {
     return this.http.get<Orden[]>(this.url, {headers: this.httpOption});
   }
 
-  public addOrden(orden:Orden):Observable<Orden>{
-    return this.http.post<Orden>(this.url, orden,{headers: this.httpOption})
+  public addOrden(orden:OrdenEnv){
+    this.http.post<OrdenEnv>(this.url, JSON.stringify(orden),{headers: this.httpOption}).subscribe(a=>{})
   }
 }

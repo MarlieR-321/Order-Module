@@ -76,19 +76,23 @@ export class AddMasterComponent implements OnInit{
 
     this.generateDate()
     this.ordenObj.fechaImprime = this.changedDate
+    this.ordenObj.fechaOrden = this.changedDate2
 
     this.newItemEvent.emit(this.ordenObj)
     //console.warn(this.ordenObj)
   }
 
   changedDate:string |null= "";
+  changedDate2:string |null= "";
   //END FORM SECTION`
   generateDate(){
     var today = new Date();
     
 
-    let ChangedFormat = this.pipe.transform(today, 'dd/MM/YYYY hh:mm:ss');
+    let ChangedFormat = this.pipe.transform(today, 'YYYY-MM-dd hh:mm:ss');
+    let ChangedFormat2 = this.pipe.transform(today, 'YYYY-MM-dd');
     this.changedDate = ChangedFormat;
+    this.changedDate2 = ChangedFormat2;
     //console.log(this.changedDate);
   }
 
